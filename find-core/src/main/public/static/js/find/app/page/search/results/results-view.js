@@ -1,3 +1,4 @@
+// Script js pour la génération de la page de resultats de la recherche bifhi
 define([
     'backbone',
     'jquery',

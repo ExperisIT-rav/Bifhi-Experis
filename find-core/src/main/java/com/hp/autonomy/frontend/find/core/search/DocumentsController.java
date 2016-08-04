@@ -3,6 +3,12 @@
  * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License.
  */
 
+
+/*
+ * Controller en charge de la récupération des données de la recherche Bifhi
+ *
+ *
+ */
 package com.hp.autonomy.frontend.find.core.search;
 
 import com.hp.autonomy.types.requests.Documents;
