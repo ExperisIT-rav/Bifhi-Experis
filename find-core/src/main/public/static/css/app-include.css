@@ -184,7 +184,10 @@ html, body {
 }
 
 .initial-loading-indicator {
-    border: 1px solid #00b388;
+    /*
+        Change all the #n00b388 by #n6699ff
+    */
+    border: 1px solid #6699ff;
     border-radius: 5px;
     height: 32px;
     left: 50%;
@@ -293,7 +296,8 @@ html, body {
 }
 
 .middle-container h4 {
-    color: #018f6e;
+    /*color: #018f6e;*/
+    color: black;
     font-weight: bold;
     font-size: 18px;
     overflow: hidden;
@@ -326,14 +330,15 @@ html, body {
 }
 
 .find-logo-small {
-    background: url('../img/Find_Logo_sml.png') no-repeat;
+    background: url('../img/Find_Logo_sml2.png') no-repeat;
     background-size: 210px 28px;
     width: 210px;
     height: 28px;
 }
 
 .find-logo-large {
-    background-image: url('../img/Find_Logo_lge.png');
+    /* Modified background image*/
+    background-image: url('../img/Find_Logo_lge2.png');
     width: 500px;
     height: 70px;
     display: inline-block;
@@ -341,7 +346,7 @@ html, body {
 }
 
 .hp-logo-footer {
-    background: url('../img/HPE_logo.png') no-repeat center;
+    background: url('../img/HPE_logo2.png') no-repeat center;
     background-size: 140px 55px;
     height: 55px;
     width: 140px;
@@ -389,11 +394,44 @@ input.find-input {
     text-decoration: none;
 }
 
+/* CSS of the results */
+
 .main-results-container {
     border-bottom: 1px solid #F2F2F2;
-    width: 100%;
-    padding: 0 10px;
+    /*width: 100%;*/
+     /*padding: 0 10px; */
+    /* */
+    border-style: solid;
+    border-width: medium;
+    /*background-color: #3986B6;*/
+    background-color:#6699ff;
+    width: 280px;
+    height: 350px;
+    display:inline-block;
+    margin-left: 40px;
+    margin-bottom: 35px;
+    border-radius: 20px;
+    padding: 10px 10px 10px 10px;
+    box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+    position: relative;
 }
+
+/* end */
+
+/* Added */
+
+.main-results-icons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.main-results-icons img {
+    width:40px;
+    height:40px;
+}
+
+/* End */
 
 .document-reference {
     overflow: hidden;
@@ -410,7 +448,7 @@ input.find-input {
 }
 
 .result-container-control {
-    color: #00b388;
+    color: pink;
     font-size: 13px;
     text-decoration: none;
 }
@@ -543,8 +581,19 @@ input.find-input {
 }
 
 .suggestion-head-text {
-    color: #00b388;
+    color: #6699ff;
 }
+
+/* Added */
+
+.results-container {
+
+    /*
+    Changed all #425563 with #5AA3D2
+    */
+}
+
+/* End */
 
 .results-container .result-message {
     font-size: 28px;
@@ -554,6 +603,10 @@ input.find-input {
 .results-contents {
     display: block;
     overflow: hidden;
+    /* Added */
+    height: 100%;
+    width:100%;
+    /* End */
 }
 /* Loading spinner */
 .loading-spinner {
@@ -562,7 +615,7 @@ input.find-input {
 }
 
 .loading-spinner, .loading-spinner i {
-    color: #00b388;
+    color: #6699ff;
 }
 
 .loading-spinner.loading-spinner-lg {
@@ -629,7 +682,7 @@ input.find-input {
 }
 
 .service-view-container .hp-check {
-    color: #00b388;
+    color: #6699ff;
 }
 
 @media only screen and (max-width: 1210px) {
@@ -706,7 +759,8 @@ input:-moz-placeholder::before {
 }
 
 .find-navbar {
-    background-color: #425563;
+    /* Reaplced #425563 by */
+    background-color: #6699ff;
     color: #fff;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
@@ -715,12 +769,18 @@ input:-moz-placeholder::before {
 }
 
 .find-navbar.reduced {
-    background: #49B59B url('../img/Find_banner.png');
+    /* Reaplced #49B59B by */
+    /* Modified background image*/
+    background: #6699ff url('../img/Find_banner4.png');
+    /* Added */
+    background-repeat: no-repeat;
+    background-size: 323px 125px;
+    /* End */
     height: 125px;
 }
 
 .popover h1, .popover h2, .popover h3, .popover h4, .popover h5, .popover h6 , .popover a{
-    color: #00b388;
+    color: #6699ff;
 }
 
 /*TODO use bootstrap theme customiser for these */
@@ -909,7 +969,7 @@ input:-moz-placeholder::before {
     top: 50%;
     transform: translate(-50%, -50%);
     font-size: 32px;
-    color: #00b388;
+    color: #6699ff;
     text-align: center;
 }
 

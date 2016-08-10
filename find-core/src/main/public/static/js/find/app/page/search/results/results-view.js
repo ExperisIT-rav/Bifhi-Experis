@@ -81,6 +81,9 @@ define([
 
         initialize: function(options) {
             _.bindAll(this, 'handlePopover');
+            // Added
+            _.bindAll(this, 'handlePopoverCv');
+            _.bindAll(this, 'handlePopoverOffers');
 
             this.queryModel = options.queryModel;
             this.entityCollection = options.entityCollection;
@@ -277,9 +280,6 @@ define([
         formatResult: function(model, isPromotion) {
             var reference = model.get('reference');
             var summary = this.addLinksToSummary(model.get('summary'));
-
-            console.log(model)
-
             var href;
 
             if (model.get('promotionType') === 'STATIC_CONTENT_PROMOTION') {
@@ -313,6 +313,9 @@ define([
             });
 
             popover($newResult.find('.similar-documents-trigger'), 'focus', this.handlePopover);
+            //Added
+            popover($newResult.find('.similar-cv-trigger'), 'focus', this.handlePopoverCv);
+            popover($newResult.find('.similar-offers-trigger'), 'focus', this.handlePopoverOffers);
         },
 
         addLinksToSummary: function(summary) {
@@ -400,6 +403,85 @@ define([
                 indexes: this.queryModel.get('indexes'),
                 reference: $target.closest('[data-reference]').attr('data-reference')
             });
+
+            console.log(this.queryModel.get('indexes')[0])
+            console.log(this.queryModel.get('indexes')[2])
+
+            collection.fetch({
+                error: _.bind(function() {
+                    $content.html(this.popoverMessageTemplate({message: i18n['search.similarDocuments.error']}));
+                }, this),
+                success: _.bind(function() {
+                    if (collection.isEmpty()) {
+                        $content.html(this.popoverMessageTemplate({message: i18n['search.similarDocuments.none']}));
+                    } else {
+                        $content.html('<ul class="list-unstyled"></ul>');
+                        _.each(collection.models, function(model) {
+                            var listItem = $(this.popoverTemplate({
+                                title: model.get('title'),
+                                summary: model.get('summary').trim().substring(0, 100) + '...'
+                            }));
+                            var reference = model.get('reference');
+                            var href;
+                            if (model.get('promotionType') === 'STATIC_CONTENT_PROMOTION') {
+                                href = viewClient.getStaticContentPromotionHref(reference);
+                            } else {
+                                href = viewClient.getHref(reference, model.get('index'), model.get('domain'));
+                            }
+                            $(listItem).find('a').colorbox(this.colorboxArguments({model: model, href: href}));
+                            $content.find('ul').append(listItem);
+                        }, this);
+                    }
+                }, this)
+            });
+        },
+
+        //Added
+        handlePopoverCv: function($content, $target) {
+            var collection = new SimilarDocumentsCollection([], {
+                indexes: this.queryModel.get('indexes')[0],
+                reference: $target.closest('[data-reference]').attr('data-reference')
+            });
+
+            console.log(this.queryModel.get('indexes')[0])
+
+            collection.fetch({
+                error: _.bind(function() {
+                    $content.html(this.popoverMessageTemplate({message: i18n['search.similarDocuments.error']}));
+                }, this),
+                success: _.bind(function() {
+                    if (collection.isEmpty()) {
+                        $content.html(this.popoverMessageTemplate({message: i18n['search.similarDocuments.none']}));
+                    } else {
+                        $content.html('<ul class="list-unstyled"></ul>');
+                        _.each(collection.models, function(model) {
+                            var listItem = $(this.popoverTemplate({
+                                title: model.get('title'),
+                                summary: model.get('summary').trim().substring(0, 100) + '...'
+                            }));
+                            var reference = model.get('reference');
+                            var href;
+                            if (model.get('promotionType') === 'STATIC_CONTENT_PROMOTION') {
+                                href = viewClient.getStaticContentPromotionHref(reference);
+                            } else {
+                                href = viewClient.getHref(reference, model.get('index'), model.get('domain'));
+                            }
+                            $(listItem).find('a').colorbox(this.colorboxArguments({model: model, href: href}));
+                            $content.find('ul').append(listItem);
+                        }, this);
+                    }
+                }, this)
+            });
+        },
+
+        //Added
+        handlePopoverOffers: function($content, $target) {
+            var collection = new SimilarDocumentsCollection([], {
+                indexes: this.queryModel.get('indexes')[1],
+                reference: $target.closest('[data-reference]').attr('data-reference')
+            });
+
+            console.log(this.queryModel.get('indexes')[1])
 
             collection.fetch({
                 error: _.bind(function() {

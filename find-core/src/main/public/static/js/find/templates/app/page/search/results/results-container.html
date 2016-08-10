@@ -4,7 +4,7 @@
 
 <div class="main-results-container m-b-sm <%-promoted%>" data-rel="results" data-reference="<%-reference %>">
     <span class="pull-left m-t-xs text-muted m-r-sm content-type">
-        <i class="icomoon-file-<%-contentType%>"></i>
+        <!-- <i class="icomoon-file-<%-contentType%>"></i> -->
     </span>
 
     <div class="results-contents">
@@ -23,8 +23,15 @@
         <p class="result-summary"> <!-- Résumé, description du CV -->
             <%= summary %>
         </p>
-        <p class="text-right">
-            <a class="similar-documents-trigger result-container-control" role="button" tabindex="-1"><%-i18n['search.similarDocuments']%></a>
+        <p class="text-right main-results-icons">
+            <!-- <a class="similar-documents-trigger result-container-control" role="button" tabindex="-1"><%-i18n['search.similarDocuments']%></a> -->
+            <a class="similar-documents-trigger result-container-control" role="button" tabindex="-1"><img src="../img/similarAll.png"></a>
+            <a class= "result-container-control"> | </a>
+            <!-- <a class="similar-cv-trigger result-container-control" role="button" tabindex="-1"><%-i18n['search.similarCv']%></a> -->
+            <a class="similar-cv-trigger result-container-control" role="button" tabindex="-1"><img src="../img/similarCv.png"></a>
+            <a class= "result-container-control"> | </a>
+            <!-- <a class="similar-offers-trigger result-container-control" role="button" tabindex="-1"><%-i18n['search.similarOffers']%></a> -->
+            <a class="similar-offers-trigger result-container-control" role="button" tabindex="-1"><img src="../img/similarOffre.png"></a>
         </p>
     </div>
 </div>

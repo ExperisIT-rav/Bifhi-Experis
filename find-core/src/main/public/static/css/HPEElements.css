@@ -1713,6 +1713,11 @@ h4.panel-title {
   padding: 8px 0px 0px 0px;
   min-width: 50px;
 }
+
+/*
+Replaced #01a982 by #5AA3D2
+*/
+
 .minimal-tab > li.active > a,
 .minimal-tab > li.active > a:hover,
 .minimal-tab > li.active > a:focus {
